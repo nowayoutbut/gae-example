@@ -1,0 +1,11 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: google/cloud-sdk
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - run: echo "$GOOGLE_AUTH" | base64 -i --decode > "$HOME/gcp-key.json"
+      - run: gcloud auth activate-service-account --key-file "$HOME/gcp-key.json"
+      - run: gcloud app deploy
