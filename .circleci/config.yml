@@ -8,4 +8,5 @@ jobs:
       - checkout
       - run: echo "$GOOGLE_AUTH" | base64 -i --decode > "$HOME/gcp-key.json"
       - run: gcloud auth activate-service-account --key-file "$HOME/gcp-key.json"
+      - run: gcloud --quiet config set project "$GOOGLE_PROJECT_ID"
       - run: gcloud app deploy
