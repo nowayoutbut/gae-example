@@ -26,6 +26,7 @@
   },
   "scripts": {
     "build": "tsc -p .",
+    "encrypt": "gcloud kms encrypt --location global --keyring env --key tokens --plaintext-file secret.yaml --ciphertext-file secret.yaml.enc",
     "gcp-build": "yarn build",
     "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"

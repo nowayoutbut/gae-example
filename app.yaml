@@ -2,3 +2,5 @@ runtime: nodejs10
 service: development
 env_variables:
   NODE_ENV: "development"
+includes:
+  - secret.yaml

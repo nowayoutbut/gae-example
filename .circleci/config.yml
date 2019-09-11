@@ -9,4 +9,5 @@ jobs:
     steps:
       - checkout
       - gcp-cli/initialize
+      - run: gcloud kms decrypt --location global --keyring env --key tokens --plaintext-file secret.yaml --ciphertext-file secret.yaml.enc
       - run: gcloud --quiet app deploy
